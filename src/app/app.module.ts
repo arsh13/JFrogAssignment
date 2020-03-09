@@ -20,6 +20,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import { DisplayCveComponent } from './display-cve/display-cve.component';
 import { SearchComponent } from './search/search.component';
+import { ToastrModule } from 'ngx-toastr';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AppHttpInterceptor } from './_commons/http.interceptor';
 
 @NgModule({
   declarations: [
@@ -44,9 +47,12 @@ import { SearchComponent } from './search/search.component';
     MatProgressSpinnerModule,
     MatInputModule,
     MatFormFieldModule,
-    MatCardModule
+    MatCardModule,
+    ToastrModule // ToastrModule imported
   ],
-  providers: [],
+  providers: [{
+provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor, multi: true
+}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
