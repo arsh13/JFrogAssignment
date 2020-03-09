@@ -16,6 +16,9 @@ import { DependancyGraphComponent } from './dependancy-graph/dependancy-graph.co
 import { DisplayTreeComponent } from './display-tree/display-tree.component';
 import { FormsModule } from '@angular/forms';
 import { DisplayCveComponent } from './display-cve/display-cve.component';
+import { ToastrModule } from 'ngx-toastr';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AppHttpInterceptor } from './_commons/http.interceptor';
 
 @NgModule({
   declarations: [
@@ -35,9 +38,12 @@ import { DisplayCveComponent } from './display-cve/display-cve.component';
     MatTreeModule,
     MatIconModule,
     MatButtonModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    ToastrModule.forRoot() // ToastrModule imported
   ],
-  providers: [],
+  providers: [{
+provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor, multi: true
+}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
