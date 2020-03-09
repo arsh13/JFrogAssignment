@@ -1,20 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { DependancyGraphService } from './dependancy-graph.service';
-import { DependancyGraph } from './dependancy-graph.model';
 
+
+/**
+ * @WhatItDoes Parent module for Search Component And Display Tree Component
+ */
 @Component({
     selector: 'app-dependancy-graph',
     templateUrl: './dependancy-graph.component.html',
     styleUrls: ['./dependancy-graph.component.css']
 })
 export class DependancyGraphComponent implements OnInit {
-    displayTree = false;
-    constructor(private service: DependancyGraphService) { }
+
+    constructor() { }
 
     ngOnInit() {
-        // this.service.formSubmitted.subscribe(submitted => {
-        //     this.displayTree = true;
-        // });
     }
 
 }

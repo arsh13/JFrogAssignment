@@ -1,8 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ComponentDetails, DependancyGraph } from './dependancy-graph.model';
+import { DependancyGraph } from '../models/dependancy-graph.model';
 import { Subject, BehaviorSubject } from 'rxjs';
 
+/**
+ * @WhatItDoes Common Service for Dependancy Graph
+ * 
+ * @description Contains API call services for fetching component details and CVE Details
+ * Contains subjects so that common data state is maintained throughout the app
+ */
 @Injectable({
     providedIn: 'root'
 })

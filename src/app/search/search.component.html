@@ -1,12 +1,8 @@
-<form class="example-form" (ngSubmit)="onSubmit()" #searchForm="ngForm">
-    <mat-form-field class="example-full-width">
+<form class="custom-form" (ngSubmit)="onSubmit()" #searchForm="ngForm">
+    <mat-form-field class="custom-full-width">
       <mat-label>Artifact Path</mat-label>
       <input matInput [formControl]="artifactFormControl" [errorStateMatcher]="matcher"
-             placeholder="Example: artifactory-ha/docker-prod-local/docker-app/66">
-      <!-- <mat-hint>This field is required!</mat-hint> -->
-      <!-- <mat-error *ngIf="artifactFormControl.hasError('artifact') && !artifactFormControl.hasError('required')">
-        Please enter a valid artifact path
-      </mat-error> -->
+             placeholder="custom: artifactory-ha/docker-prod-local/docker-app/66">
       <mat-error *ngIf="artifactFormControl.hasError('required')">
         Artifact Path is <strong>required</strong>
       </mat-error>

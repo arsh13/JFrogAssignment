@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CveDetails } from '../display-tree/display-tree.component';
+import { CveDetails } from '../_common';
 
+/**
+ * @whatItDoes Shows the CVE Details of a component
+ */
 @Component({
     selector: 'app-display-cve',
     templateUrl: './display-cve.component.html',

@@ -22,7 +22,7 @@ import { DisplayCveComponent } from './display-cve/display-cve.component';
 import { SearchComponent } from './search/search.component';
 import { ToastrModule } from 'ngx-toastr';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AppHttpInterceptor } from './_commons/http.interceptor';
+import { AppHttpInterceptor } from './_common/services/http.interceptor';
 
 @NgModule({
   declarations: [

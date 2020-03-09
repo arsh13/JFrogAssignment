@@ -31,7 +31,11 @@
   </mat-card>
 </div>
 
+<div *ngIf="!showSpinner; else spinner">
+
+</div>
 
 <ng-template #spinner>
   <mat-spinner strokeWidth="5" class="centered"></mat-spinner>
 </ng-template>
+
