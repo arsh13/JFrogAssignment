@@ -4,6 +4,7 @@ import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { ComponentDetails, DependancyGraph } from '../_common/models/dependancy-graph.model';
 import { DependancyGraphService } from '../_common/services/dependancy-graph.service';
 import { Router } from '@angular/router';
+import { CveDetails } from '../_common/models/cve-details.model';
 
 
 /**

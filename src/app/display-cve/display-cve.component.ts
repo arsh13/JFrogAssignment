@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CveDetails } from '../_common';
+import { CveDetails } from '../_common/models/cve-details.model';
 
 /**
  * @whatItDoes Shows the CVE Details of a component
