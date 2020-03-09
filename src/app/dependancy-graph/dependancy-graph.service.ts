@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ComponentDetails } from './dependancy-graph.model';
-import { Subject } from 'rxjs';
+import { ComponentDetails, DependancyGraph } from './dependancy-graph.model';
+import { Subject, BehaviorSubject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
 export class DependancyGraphService {
-    artifact = new Subject<ComponentDetails[]>();
+    artifact = new Subject<DependancyGraph>();
+    formSubmitted = new BehaviorSubject<boolean>(false);
 
     constructor(private http: HttpClient) { }
 
-    getComponents() {
+    getComponents(artifactName: string) {
         return this.http.post(
             '/api/v1/dependencyGraph/artifact',
-            '{"path": "artifactory-ha/docker-prod-local/docker-app/66"}',
+            { path: artifactName },
             {
                 headers: new HttpHeaders({
                     'Content-Type': 'application/json',
@@ -23,10 +24,10 @@ export class DependancyGraphService {
             });
     }
 
-    showCveDetails(id){
+    showCveDetails(id: string[]) {
         return this.http.post(
             '/api/v1/component/searchCvesByComponents',
-            {"components_id": id},
+            { components_id: id },
             {
                 headers: new HttpHeaders({
                     'Content-Type': 'application/json',

@@ -8,16 +8,13 @@ import { DependancyGraph } from './dependancy-graph.model';
     styleUrls: ['./dependancy-graph.component.css']
 })
 export class DependancyGraphComponent implements OnInit {
-
+    displayTree = false;
     constructor(private service: DependancyGraphService) { }
 
     ngOnInit() {
-        this.service.getComponents().subscribe((data: DependancyGraph) => {
-            console.log(data);
-            console.log('Name:' + data.components[0].component_name);
-            console.log('Children:' + data.components[0].components);
-            this.service.artifact.next(data.components);
-        });
+        // this.service.formSubmitted.subscribe(submitted => {
+        //     this.displayTree = true;
+        // });
     }
 
 }

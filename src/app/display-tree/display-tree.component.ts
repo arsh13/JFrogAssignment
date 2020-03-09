@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
-import { ComponentDetails } from '../dependancy-graph/dependancy-graph.model';
+import { ComponentDetails, DependancyGraph } from '../dependancy-graph/dependancy-graph.model';
 import { DependancyGraphService } from '../dependancy-graph/dependancy-graph.service';
 import { Router } from '@angular/router';
 
@@ -19,6 +19,8 @@ export class CveDetails {
 export class DisplayTreeComponent implements OnInit {
     treeControl = new NestedTreeControl<ComponentDetails>(node => node.components);
     dataSource = new MatTreeNestedDataSource<ComponentDetails>();
+    displayTree = false;
+    artifactName;
 
     constructor(private service: DependancyGraphService, private router: Router) {
     }
@@ -26,7 +28,12 @@ export class DisplayTreeComponent implements OnInit {
     hasChild = (_: number, node: ComponentDetails) => !!node.components && node.components.length > 0;
 
     ngOnInit() {
-        this.service.artifact.subscribe(components => this.dataSource.data = components);
+        this.service.artifact.subscribe(data => {
+            this.artifactName = data.artifact.name;
+            this.dataSource.data = data.components;
+        });
+
+        this.service.formSubmitted.subscribe(submitted => this.displayTree = submitted);
     }
 
     showCveDetails(id) {

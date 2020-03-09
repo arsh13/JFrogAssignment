@@ -17,11 +17,14 @@
   margin-left: -50px;
 }
 
-.mat-tree-node {
-  overflow: visible;
-  white-space: nowrap;
+.mat-nested-tree-node {
+  word-wrap: break-word;
 }
 
 .pointer{
   cursor: pointer;
+}
+
+mat-card{
+  margin-top: 2em;
 }
