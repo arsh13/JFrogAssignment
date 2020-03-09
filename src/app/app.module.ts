@@ -48,7 +48,7 @@ import { AppHttpInterceptor } from './_commons/http.interceptor';
     MatInputModule,
     MatFormFieldModule,
     MatCardModule,
-    ToastrModule // ToastrModule imported
+    ToastrModule.forRoot()// ToastrModule imported
   ],
   providers: [{
 provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor, multi: true
