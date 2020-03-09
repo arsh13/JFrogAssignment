@@ -1,5 +1,5 @@
 <div class="container">
-    <div>CVE Details for {{ details.component }}</div>
+    <div>CVE Details for component: {{ details.component }}</div>
 
     <ng-container *ngIf="details.cves.length > 0">
         <div *ngFor="let cve of details.cves">
