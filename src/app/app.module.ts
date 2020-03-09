@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -29,6 +30,7 @@ import { DisplayCveComponent } from './display-cve/display-cve.component';
     FormsModule,
     HttpClientModule,
     NoopAnimationsModule,
+    MatToolbarModule,
     BrowserAnimationsModule,
     MatTreeModule,
     MatIconModule,

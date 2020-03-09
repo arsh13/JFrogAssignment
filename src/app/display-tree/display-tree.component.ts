@@ -4,13 +4,12 @@ import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { ComponentDetails } from '../dependancy-graph/dependancy-graph.model';
 import { DependancyGraphService } from '../dependancy-graph/dependancy-graph.service';
 import { Router } from '@angular/router';
-import { url } from 'inspector';
 
 export class CveDetails {
     component: string;
-    cves: [];
+    cves: string[];
     error?: string;
-};
+}
 
 @Component({
     selector: 'app-display-tree',
@@ -34,8 +33,11 @@ export class DisplayTreeComponent implements OnInit {
         const arr = [];
         arr.push(id);
         this.service.showCveDetails(arr).subscribe((data: CveDetails[]) => {
-            data.map(component => {
-                window.open('/cve-details', '_blank');
+            data.map(details => {
+                window.open('/cve-details?component=' + details.component
+                    + '&cves=' + JSON.stringify(details.cves)
+                    + '&error=' + details.error,
+                    '_blank');
             });
         });
     }

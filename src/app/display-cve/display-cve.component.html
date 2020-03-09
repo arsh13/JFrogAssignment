@@ -1,1 +1,15 @@
-<p>display-cve works!</p>
+<div class="container">
+    <div>CVE Details for {{ details.component }}</div>
+
+    <ng-container *ngIf="details.cves.length > 0">
+        <div *ngFor="let cve of details.cves">
+            {{cve}}
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="details.error">
+        <div [ngStyle]="{'color': 'red'}">
+            {{details.error}}
+        </div>
+    </ng-container>
+</div>
